@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Расчет метрик производства</title>
+</head>
+<body>
+    <h1>Введите данные для расчета метрик</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Рассчитать</button>
+    </form>
+</body>
+</html>

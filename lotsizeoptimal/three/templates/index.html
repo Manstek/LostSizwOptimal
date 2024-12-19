@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Input</title>
+</head>
+<body>
+    <h1>Введите количество партий</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сгенерировать формы</button>
+    </form>
+
+    {% if forms %}
+        <h2>Заполните данные для партий</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="n" value="{{ forms|length }}">
+            {% for form in forms %}
+                <fieldset>
+                    <legend>Партия {{ forloop.counter }}</legend>
+                    {{ form.as_p }}
+                </fieldset>
+            {% endfor %}
+            <button type="submit" formaction="{% url 'three:three' %}">Рассчитать</button>
+        </form>
+    {% endif %}
+</body>
+</html>

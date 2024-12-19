@@ -60,3 +60,7 @@ def batch_calculator(request):
         form = BatchCalculatorForm()
 
     return render(request, "batch_calculator.html", {"form": form})
+
+
+def menu(request):
+    return render(request, 'menu.html')

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Результаты расчета</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>№ Партии</th>
+                <th>p_1s</th>
+                <th>p_1s (округленное)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for batch in batches %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ batch.p_1s }}</td>
+                    <td>{{ batch.p_1s_rounded }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'three:three' %}">Назад</a>
+</body>
+</html>
